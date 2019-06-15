@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Business Intelligence For You</title>
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/descritiva.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+	<div style="text-align:center;">
+		<h1>Business Intelligence For You</h1><hr><br>
+		<h2> Para este cálculo, abra o console do navegador</h2>
+		<h5 style="color: gray; padding-bottom: 30px">(Google Chrome: F12 | Opera: Ctrl + Shit + C)</h5>
+	</div>
+
+	<div id="perguntasV">
+		<div style="text-align:center;">
+			Insira os valores <br>
+			<input type="text" id="dados"> <br>
+			<small>Use ; para separar os dados | Use . para dados decimais</small>
+		</div>
+		<hr>
+		<div class="row" style="text-align:right;">
+			<div class="col-3 col-md-3">
+				Escolha um opção<Br><br>
+					<form >
+						&nbsp&nbsp&nbspAmostra <input type="radio" name="tipoAP" value ="Amostra"><br>
+						População <input type="radio" name="tipoAP" value="População">
+					</form>
+				</div>
+
+				<div class="col-3 col-md-3">
+					Tipo de variável<Br><br>
+						<form>
+							Quantitativa Discreta <input type="radio" name="tipoQ" value ="Quantitativa_Discreta" onclick="Quantitativa_Discreta()"><br>
+							Quantitativa Contínua <input type="radio" name="tipoQ" value="Quantitativa_Continua" onclick="Quantitativa_Continua()"><br>
+							Qualitativa Ordinal <input type="radio" name="tipoQ" value="Qualitativa_Ordinal" onclick="Qualitativa_Ordinal()"><br>
+							Qualitativa Nominal <input type="radio" name="tipoQ" value="Qualitativa_Nominal" onclick="Qualitativa_Nominal()">
+						</form>
+					</div>
+
+					<div id="ms" class="col-3 col-md-3">
+						Medidas Separatrizes<br><br>
+						<form >
+							Quartil <input type="radio" name="medidasSeparatrizes" value="quartil" onclick="quartil()"><br>
+							Quintil <input type="radio" name="medidasSeparatrizes" value="kintil" onclick="kintil()"><br>
+							Decil <input type="radio" name="medidasSeparatrizes" value="decil" onclick="decil()"><br>
+							Porcentil <input type="radio" name="medidasSeparatrizes" value="porcentil" onclick="porcentil()">
+						</form>
+					</div>
+				</div>
+
+				<hr>
+				<div id="Qua" style="text-align:center;">
+					Digite uma ordem <br>
+					<input type="text"  id="ordem" > <br>
+					<small>Use ; para separar os dados</small>
+					<hr>
+				</div>
+				<div class="row" style="text-align:right;">
+					<div id="quartil" class="col-3 col-md-3">
+						Quartil <br><br>
+						25%  <input type="radio" name="quartil" value="25"  onclick="vq()"><br>
+						50%  <input type="radio" name="quartil" value="50"  onclick="vq()"><br>
+						75%  <input type="radio" name="quartil" value="75"  onclick="vq()"><br>
+						100% <input type="radio" name="quartil" value="100" onclick="vq()">
+					</div>
+
+					<div id="kintil"class="col-3 col-md-3">
+						Quintil <br><br>
+						20%  <input type="radio" name="kintil" value="20"  onclick="vk()"><br>
+						40%  <input type="radio" name="kintil" value="40"  onclick="vk()"><br>
+						60%  <input type="radio" name="kintil" value="60"  onclick="vk()"><br>
+						80%  <input type="radio" name="kintil" value="80"  onclick="vk()"><br>
+						100% <input type="radio" name="kintil" value="100" onclick="vk()">
+					</div>
+
+
+
+					<div id="decil"class="col-3 col-md-3">
+						Decil <br><br>
+						10%  <input type="radio" name="decil" value="10"  onclick="vd()"><br>
+						20%  <input type="radio" name="decil" value="20"  onclick="vd()"><br>
+						30%  <input type="radio" name="decil" value="30"  onclick="vd()"><br>
+						40%  <input type="radio" name="decil" value="40"  onclick="vd()"><br>
+						50%  <input type="radio" name="decil" value="50"  onclick="vd()"><br>
+						60%  <input type="radio" name="decil" value="60"  onclick="vd()"><br>
+						70%  <input type="radio" name="decil" value="70"  onclick="vd()"><br>
+						80%  <input type="radio" name="decil" value="80"  onclick="vd()"><br>
+						90%  <input type="radio" name="decil" value="90"  onclick="vd()"><br>
+						100% <input type="radio" name="decil" value="100" onclick="vd()">
+					</div>
+				</div>
+				<hr>
+				<div style="text-align:center">
+					Porcentil <br><br>
+				</div>
+				<div class="row" style="text-align:right">
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						01%  <input type="radio" name="porcentil" value="1"   onclick="vp()"><br>
+						02%  <input type="radio" name="porcentil" value="2"   onclick="vp()"><br>
+						03%  <input type="radio" name="porcentil" value="3"   onclick="vp()"><br>
+						04%  <input type="radio" name="porcentil" value="4"   onclick="vp()"><br>
+						05%  <input type="radio" name="porcentil" value="5"   onclick="vp()"><br>
+						06%  <input type="radio" name="porcentil" value="6"   onclick="vp()"><br>
+						07%  <input type="radio" name="porcentil" value="7"   onclick="vp()"><br>
+						08%  <input type="radio" name="porcentil" value="8"   onclick="vp()"><br>
+						09%  <input type="radio" name="porcentil" value="9"   onclick="vp()"><br>
+						10%  <input type="radio" name="porcentil" value="10"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						11%  <input type="radio" name="porcentil" value="11"  onclick="vp()"><br>
+						12%  <input type="radio" name="porcentil" value="12"  onclick="vp()"><br>
+						13%  <input type="radio" name="porcentil" value="13"  onclick="vp()"><br>
+						14%  <input type="radio" name="porcentil" value="14"  onclick="vp()"><br>
+						15%  <input type="radio" name="porcentil" value="15"  onclick="vp()"><br>
+						16%  <input type="radio" name="porcentil" value="16"  onclick="vp()"><br>
+						17%  <input type="radio" name="porcentil" value="17"  onclick="vp()"><br>
+						18%  <input type="radio" name="porcentil" value="18"  onclick="vp()"><br>
+						19%  <input type="radio" name="porcentil" value="19"  onclick="vp()"><br>
+						20%  <input type="radio" name="porcentil" value="20"  onclick="vp()">
+					</div>
+
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						21%  <input type="radio" name="porcentil" value="21"  onclick="vp()"><br>
+						22%  <input type="radio" name="porcentil" value="22"  onclick="vp()"><br>
+						23%  <input type="radio" name="porcentil" value="23"  onclick="vp()"><br>
+						24%  <input type="radio" name="porcentil" value="24"  onclick="vp()"><br>
+						25%  <input type="radio" name="porcentil" value="25"  onclick="vp()"><br>
+						26%  <input type="radio" name="porcentil" value="26"  onclick="vp()"><br>
+						27%  <input type="radio" name="porcentil" value="27"  onclick="vp()"><br>
+						28%  <input type="radio" name="porcentil" value="28"  onclick="vp()"><br>
+						29%  <input type="radio" name="porcentil" value="29"  onclick="vp()"><br>
+						30%  <input type="radio" name="porcentil" value="30"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						31%  <input type="radio" name="porcentil" value="31"  onclick="vp()"><br>
+						32%  <input type="radio" name="porcentil" value="32"  onclick="vp()"><br>
+						33%  <input type="radio" name="porcentil" value="33"  onclick="vp()"><br>
+						34%  <input type="radio" name="porcentil" value="34"  onclick="vp()"><br>
+						35%  <input type="radio" name="porcentil" value="35"  onclick="vp()"><br>
+						36%  <input type="radio" name="porcentil" value="36"  onclick="vp()"><br>
+						37%  <input type="radio" name="porcentil" value="37"  onclick="vp()"><br>
+						38%  <input type="radio" name="porcentil" value="38"  onclick="vp()"><br>
+						39%  <input type="radio" name="porcentil" value="39"  onclick="vp()"><br>
+						40%  <input type="radio" name="porcentil" value="40"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						41%  <input type="radio" name="porcentil" value="41"  onclick="vp()"><br>
+						42%  <input type="radio" name="porcentil" value="42"  onclick="vp()"><br>
+						43%  <input type="radio" name="porcentil" value="43"  onclick="vp()"><br>
+						44%  <input type="radio" name="porcentil" value="44"  onclick="vp()"><br>
+						45%  <input type="radio" name="porcentil" value="45"  onclick="vp()"><br>
+						46%  <input type="radio" name="porcentil" value="46"  onclick="vp()"><br>
+						47%  <input type="radio" name="porcentil" value="47"  onclick="vp()"><br>
+						48%  <input type="radio" name="porcentil" value="48"  onclick="vp()"><br>
+						49%  <input type="radio" name="porcentil" value="49"  onclick="vp()"><br>
+						50%  <input type="radio" name="porcentil" value="50"  onclick="vp()">
+					</div>
+				</div>
+				<div class="row" style="text-align:right;padding-top:20px">
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						51%  <input type="radio" name="porcentil" value="51"  onclick="vp()"><br>
+						52%  <input type="radio" name="porcentil" value="52"  onclick="vp()"><br>
+						53%  <input type="radio" name="porcentil" value="53"  onclick="vp()"><br>
+						54%  <input type="radio" name="porcentil" value="54"  onclick="vp()"><br>
+						55%  <input type="radio" name="porcentil" value="55"  onclick="vp()"><br>
+						56%  <input type="radio" name="porcentil" value="56"  onclick="vp()"><br>
+						57%  <input type="radio" name="porcentil" value="57"  onclick="vp()"><br>
+						58%  <input type="radio" name="porcentil" value="58"  onclick="vp()"><br>
+						59%  <input type="radio" name="porcentil" value="59"  onclick="vp()"><br>
+						60%  <input type="radio" name="porcentil" value="60"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						61%  <input type="radio" name="porcentil" value="61"  onclick="vp()"><br>
+						62%  <input type="radio" name="porcentil" value="62"  onclick="vp()"><br>
+						63%  <input type="radio" name="porcentil" value="63"  onclick="vp()"><br>
+						64%  <input type="radio" name="porcentil" value="64"  onclick="vp()"><br>
+						65%  <input type="radio" name="porcentil" value="65"  onclick="vp()"><br>
+						66%  <input type="radio" name="porcentil" value="66"  onclick="vp()"><br>
+						67%  <input type="radio" name="porcentil" value="67"  onclick="vp()"><br>
+						68%  <input type="radio" name="porcentil" value="68"  onclick="vp()"><br>
+						69%  <input type="radio" name="porcentil" value="69"  onclick="vp()"><br>
+						70%  <input type="radio" name="porcentil" value="70"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						71%  <input type="radio" name="porcentil" value="71"  onclick="vp()"><br>
+						72%  <input type="radio" name="porcentil" value="72"  onclick="vp()"><br>
+						73%  <input type="radio" name="porcentil" value="73"  onclick="vp()"><br>
+						74%  <input type="radio" name="porcentil" value="74"  onclick="vp()"><br>
+						75%  <input type="radio" name="porcentil" value="75"  onclick="vp()"><br>
+						76%  <input type="radio" name="porcentil" value="76"  onclick="vp()"><br>
+						77%  <input type="radio" name="porcentil" value="77"  onclick="vp()"><br>
+						78%  <input type="radio" name="porcentil" value="78"  onclick="vp()"><br>
+						79%  <input type="radio" name="porcentil" value="79"  onclick="vp()"><br>
+						80%  <input type="radio" name="porcentil" value="80"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						81%  <input type="radio" name="porcentil" value="81"  onclick="vp()"><br>
+						82%  <input type="radio" name="porcentil" value="82"  onclick="vp()"><br>
+						83%  <input type="radio" name="porcentil" value="83"  onclick="vp()"><br>
+						84%  <input type="radio" name="porcentil" value="84"  onclick="vp()"><br>
+						85%  <input type="radio" name="porcentil" value="85"  onclick="vp()"><br>
+						86%  <input type="radio" name="porcentil" value="86"  onclick="vp()"><br>
+						87%  <input type="radio" name="porcentil" value="87"  onclick="vp()"><br>
+						88%  <input type="radio" name="porcentil" value="88"  onclick="vp()"><br>
+						89%  <input type="radio" name="porcentil" value="89"  onclick="vp()"><br>
+						90%  <input type="radio" name="porcentil" value="90"  onclick="vp()">
+					</div>
+					<div id="porcentil" class="col-2 col-md-2" style="font-size: 15px;">
+						91%  <input type="radio" name="porcentil" value="91"  onclick="vp()"><br>
+						92%  <input type="radio" name="porcentil" value="92"  onclick="vp()"><br>
+						93%  <input type="radio" name="porcentil" value="93"  onclick="vp()"><br>
+						94%  <input type="radio" name="porcentil" value="94"  onclick="vp()"><br>
+						95%  <input type="radio" name="porcentil" value="95"  onclick="vp()"><br>
+						96%  <input type="radio" name="porcentil" value="96"  onclick="vp()"><br>
+						97%  <input type="radio" name="porcentil" value="97"  onclick="vp()"><br>
+						98%  <input type="radio" name="porcentil" value="98"  onclick="vp()"><br>
+						99%  <input type="radio" name="porcentil" value="99"  onclick="vp()"><br>
+						100% <input type="radio" name="porcentil" value="100" onclick="vp()">
+					</div>
+				</div>
+			</div>
+		<hr>
+
+		<div style="text-align:center;">
+			Digite o nome da variavel de pesquisa <br>
+			<input type="text" id="pesquisa"> <br><br>
+			<button class="btn btn-info" onclick="voltar(value)" value="menu.html" style="margin-right:30px">Voltar</button>
+			<button class="btn btn-success" onclick="descritiva()">Calcular</button>
+		</div>
+
+		<p>
+		</p>
+	</div>
+	
+	<div id="saidas" style="text-align: center;">
+		<p id="vetorOrdenado">
+			<p id="suaOpcao">
+				<p id="Vpesquisa">
+					<p id="DesvioPadrao">
+						<p id="CoeficienteDeVariacao">
+							<p id="media">
+								<p id="mediaContinua">
+									<p id="valorMedidasSepatatrizes">
+										<p id="porcentagemMedidasSeparatrizes">
+											<p id="mediana">
+												<p id="moda">
+													<p id="tabelaDescritiva" style="margin-left: 45%;">
+														<p id="tabelaContinua" style="margin-left:45%">
+
+														</div>
+
+														<p>
+
+														</p>
+													</p>
+												</p>
+											</p>
+										</p>
+									</p>
+								</p>
+							</p>
+						</p>
+					</p>
+				</p>
+			</p>
+		</p>
+	</div>
+	<canvas id="grafico" height="268" class="chartjs-render-monitor" width="536" style="display: block; width: 536px; height: 268px;"></canvas>
+
+
+	</body>
+</html>

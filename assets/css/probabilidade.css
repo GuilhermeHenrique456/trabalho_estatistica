@@ -1,0 +1,30 @@
+	h1{
+		margin-top: -10px;
+		text-align: center;
+		background-color: black;
+		color:#39E636;
+		margin-right: -8px;
+		margin-left: -8px;
+		font-size: 40px;
+	}
+	h2{
+		background-color: gray;
+		text-align: center;
+		font-size: 40px;
+		border-radius: 30px;
+	}
+	div{
+		text-align: center;
+		font-size: 30px;
+		padding-bottom: 10px;
+	}
+	p{
+		text-align: center;
+	}
+	button{
+		font-size: 30px;
+		border-radius: 30px;
+	}
+	body{
+		background-color: #BDBDBD
+	}
