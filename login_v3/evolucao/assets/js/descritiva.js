@@ -1293,3 +1293,13 @@ function desenhaGraficoDisc(vety, vetgrafico, grafico){
         }
     });
 }
+function lerArq() {
+	var arq = document.getElementById("fileDesc").files[0];
+	var reader = new FileReader();
+	reader.onload = function (e) {
+	  var dados = document.getElementById("dados");
+	  dados.value = reader.result;
+	}
+	reader.readAsText(arq);
+	document.getElementById("labelArqD").innerHTML = arq.name;
+  }

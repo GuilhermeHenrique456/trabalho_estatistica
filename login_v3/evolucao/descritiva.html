@@ -14,12 +14,18 @@
 		<h2> Para este cálculo, abra o console do navegador</h2>
 		<h5 style="color: gray; padding-bottom: 30px">(Google Chrome: F12 | Opera: Ctrl + Shit + C)</h5>
 	</div>
-
-	<div id="perguntasV">
+		<div id="perguntasV">
 		<div style="text-align:center;">
 			Insira os valores <br>
 			<input type="text" id="dados"> <br>
 			<small>Use ; para separar os dados | Use . para dados decimais</small>
+		</div>
+		<div style="text-align: center; margin-top: 2%;">
+		<label class="btn btn-primary btn-dark" for="fileDesc">
+				<input type="file" class="form-control-file border" onchange="lerArq()" id="fileDesc"
+				  accept=".csv , .txt" style="display: none;">
+				Escolha um arquivo
+			  </label>
 		</div>
 		<hr>
 		<div class="row" style="text-align:right;">

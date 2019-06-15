@@ -78,6 +78,7 @@ function projetarComY(){
 	var y = document.getElementById("Py").value
 	var saida = ((Number(y) - Number(b) ) / Number(a)).toFixed(2)
 	document.getElementById("SPy").innerHTML = ("X = " + saida)
+	graficocorrela(scatter, line);
 
 }
 
