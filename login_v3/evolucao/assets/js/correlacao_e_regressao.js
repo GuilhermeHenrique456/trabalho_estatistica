@@ -62,7 +62,7 @@ function calcula(){
 	a = ( (n * SxVy - Sx * Sy ) / (n*Sxe2 - (Sx)**2 ) ).toFixed(2)
 	b = (SyDn  - (a  * SxDn)).toFixed(2)
 	document.getElementById("EquaçãoDaReta").innerHTML = (" Equação da reta : Y = " + a + " X " + " + "  +  b)
-	document.getElementById("invisivel").id = ("visivel")
+	
 }
 function projetarComX(){
 	A = a
@@ -85,7 +85,7 @@ function voltar(link){
 	window.location.href=link
 }
 function graficocorrela(scatter, line){  
-    var ctx = document.getElementById("myChartcorrela");
+    var ctx = document.getElementById("grafico");
     var mixedChart = new Chart(ctx, {
     type: 'scatter',
     data: {
