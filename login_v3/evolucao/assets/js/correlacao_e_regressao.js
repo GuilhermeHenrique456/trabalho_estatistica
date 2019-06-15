@@ -85,6 +85,8 @@ function voltar(link){
 	window.location.href=link
 }
 function graficocorrela(scatter, line){  
+	console.log(scatter)
+	console.log(line)
     var ctx = document.getElementById("grafico");
     var mixedChart = new Chart(ctx, {
     type: 'scatter',
@@ -96,7 +98,7 @@ function graficocorrela(scatter, line){
             },
         {
         type: 'line',
-        label: 'Line Dataset',
+        label: 'line',
             data: line,
             showLine: true,
                 backgroundColor: "rgba(0,0,255,0)",
